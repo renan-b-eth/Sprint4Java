@@ -18,13 +18,12 @@ import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 
 import br.com.fiap.beans.Admin;
-import br.com.fiap.beans.Aluno;
 import br.com.fiap.bo.AdminBO;
 
 
 
 @Path("/aluno")
-public class AlunoResource {
+public class AdminResource {
 	
 
 		

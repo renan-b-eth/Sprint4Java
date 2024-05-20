@@ -1,13 +1,15 @@
 package br.com.fiap.main;
 
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JOptionPane;
+import javax.xml.crypto.Data;
 
 import br.com.fiap.beans.Admin;
-import br.com.fiap.beans.Aluno;
 import br.com.fiap.bo.AdminBO;
-
+import java.util.Date;
 public class TesteCadastro {
 	
 	static String texto (String j) {
@@ -25,7 +27,6 @@ public class TesteCadastro {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		// Instanciar objetos
-		Aluno objAluno = new Aluno();
 		Admin objAdmin = new Admin(null);
 		
 		AdminBO dao = new AdminBO();

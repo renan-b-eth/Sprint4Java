@@ -3,9 +3,7 @@ package br.com.fiap.main;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import br.com.fiap.beans.Admin;
-import br.com.fiap.beans.Aluno;
 import br.com.fiap.dao.AdminDAO;
 
 public class TesteSelecionar {

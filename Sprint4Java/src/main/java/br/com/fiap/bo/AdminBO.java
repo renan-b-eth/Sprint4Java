@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import br.com.fiap.beans.Admin;
-import br.com.fiap.beans.Aluno;
 import br.com.fiap.dao.AdminDAO;
 
 public class AdminBO {

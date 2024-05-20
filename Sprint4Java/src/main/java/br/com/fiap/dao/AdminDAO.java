@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.fiap.beans.Admin;
-import br.com.fiap.beans.Aluno;
 import br.com.fiap.conexoes.ConexaoFactory;
 
 public class AdminDAO {
@@ -23,7 +22,7 @@ public class AdminDAO {
 	// Insert 
 	public String inserir (Admin admin) throws SQLException {
 		PreparedStatement stmt = minhaConexao.prepareStatement
-				(" Insert into T_CADASTRO_ADMIN values (?, ?, ?, ?, ?, ?, ?)");
+				(" Insert into T_CADASTRO_ADMIN values (?, ?, ?, ?, ?, ?, ?, ? ,?)");
 			stmt.setInt(1, admin.getId());
 			stmt.setString(2, admin.getNome());
 			stmt.setString(3, admin.getDataNasc());
@@ -31,6 +30,8 @@ public class AdminDAO {
 			stmt.setString(5, admin.getEmail());
 			stmt.setString(6, admin.getTelefone());
 			stmt.setString(7, admin.getSenha());
+			stmt.setString(8, "ADMIN");
+			stmt.setInt(9, 3); // colocar numero aleatorio
 			stmt.execute();
 			stmt.close();			
 		return "Cadastrado com Sucesso!";

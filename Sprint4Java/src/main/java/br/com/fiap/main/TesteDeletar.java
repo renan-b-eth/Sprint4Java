@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 import br.com.fiap.beans.Admin;
-import br.com.fiap.beans.Aluno;
 import br.com.fiap.dao.AdminDAO;
 
 public class TesteDeletar {
@@ -16,7 +15,6 @@ public class TesteDeletar {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		// Instanciar objetos 
-		Aluno objAluno = new Aluno();
 		Admin objAdmin = new Admin(null);
 		
 		AdminDAO dao = new AdminDAO();
