@@ -22,7 +22,7 @@ public class AdminDAO {
 	// Insert 
 	public String inserir (Admin admin) throws SQLException {
 		PreparedStatement stmt = minhaConexao.prepareStatement
-				(" Insert into T_CADASTRO_ADMIN values (?, ?, ?, ?, ?, ?, ?, ? ,?)");
+				(" Insert into T_CADASTRO_ADMIN values (?, ?, ?, ?, ?, ?, ?)");
 			stmt.setInt(1, admin.getId());
 			stmt.setString(2, admin.getNome());
 			stmt.setString(3, admin.getDataNasc());
@@ -30,17 +30,16 @@ public class AdminDAO {
 			stmt.setString(5, admin.getEmail());
 			stmt.setString(6, admin.getTelefone());
 			stmt.setString(7, admin.getSenha());
-			stmt.setString(8, "ADMIN");
-			stmt.setInt(9, 3); // colocar numero aleatorio
 			stmt.execute();
-			stmt.close();			
+			stmt.close();
+		System.out.println("Usuario cadastro com sucesso");
 		return "Cadastrado com Sucesso!";
 	}
 	
 	// Delete
 	public String deletar(int id) throws SQLException {
 		PreparedStatement stmt = minhaConexao.prepareStatement
-				("Delete from T_CADASTRO_ADMIN where RM = ?");
+				("Delete from T_CADASTRO_ADMIN where ID_CADASTRO_ADMIN = ?");
 			stmt.setInt(1, id);
 			stmt.execute();
 			stmt.close();		
@@ -49,7 +48,7 @@ public class AdminDAO {
 	// UpDate 
 	public String atualizar(Admin admin) throws SQLException {
 		PreparedStatement stmt = minhaConexao.prepareStatement
-				(" Update T_CADASTRO_ADMIN set NOME_CADASTRO_ADMIN = ?, SENHA_CADASTRO_ADMIN = ?,  where ID = ?");
+				(" Update T_CADASTRO_ADMIN set NOME_CADASTRO_ADMIN = ?, SENHA_CADASTRO_ADMIN = ?,  where ID_CADASTRO_ADMIN = ?");
 				stmt.setString(1, admin.getNome());
 				stmt.setString(2, admin.getSenha());
 				stmt.setInt(3, admin.getId());

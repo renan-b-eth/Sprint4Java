@@ -15,7 +15,6 @@ public class Teste {
         FraseService fraseService = new FraseService();
         
         Scanner scanner = new Scanner(System.in);
-        //System.out.println("Digite o CNPJ que deseja consultar: ");
         System.out.println("Digite o ID da frase:");
         String cnpj = scanner.nextLine();
         String id = scanner.next();
@@ -24,7 +23,7 @@ public class Teste {
         FraseService consultaFrase = fraseService.getFrase(id);
         
         if (consultaFrase != null) {
-            System.out.println("CNPJ: " + consultaFrase.getFrase(id));
+            System.out.println("Frase: " + consultaFrase.getFrase(id));
             
         } else {
             System.out.println("Não existe frase.");

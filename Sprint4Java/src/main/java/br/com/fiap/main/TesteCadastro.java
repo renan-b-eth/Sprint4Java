@@ -35,9 +35,10 @@ public class TesteCadastro {
 		objAdmin.setNome(texto("Nome"));
 		objAdmin.setDataNasc(texto("Data"));
 		objAdmin.setSexo(texto("Sexo"));
-		objAdmin.setEmail(texto("Email"));
 		objAdmin.setTelefone(texto("Telefone"));
+		objAdmin.setEmail(texto("Email"));
 		objAdmin.setSenha(texto("Senha"));
+		
 		
 		dao.inserirBo(objAdmin);
 
