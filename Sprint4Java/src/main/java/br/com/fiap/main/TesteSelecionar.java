@@ -4,24 +4,29 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.fiap.beans.Admin;
 import br.com.fiap.beans.Aluno;
-import br.com.fiap.dao.AlunoDAO;
+import br.com.fiap.dao.AdminDAO;
 
 public class TesteSelecionar {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		//Instanciar objetos 
-		AlunoDAO dao = new AlunoDAO();
+		//AlunoDAO dao = new AlunoDAO();
+		AdminDAO dao = new AdminDAO();
 		
-		List<Aluno> listaAluno = (ArrayList<Aluno>) dao.selecionar();
+		List<Admin> listaAdmin = (ArrayList<Admin>) dao.selecionar();
 		
-		if(listaAluno != null) {
+		if(listaAdmin != null) {
 			// foreach 
-			for( Aluno aluno : listaAluno) {
-				System.out.println(aluno.getRm() + " " + 
-									aluno.getNome() + " " + 
-						        	aluno.getTurma() + " " + 
-									aluno.getNota() + " ");
+			for( Admin admin : listaAdmin) {
+				System.out.println(admin.getId() + " " + 
+									admin.getNome() + " " + 
+						        	admin.getDataNasc() + " " + 
+									admin.getSexo() + " " +
+									admin.getTelefone() + " " +
+									admin.getEmail() + " " +
+									admin.getSenha() + " ");
 			}
 		}
 

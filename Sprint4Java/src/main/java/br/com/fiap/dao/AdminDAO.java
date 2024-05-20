@@ -37,27 +37,25 @@ public class AdminDAO {
 	}
 	
 	// Delete
-	/*public String deletar(int rm) throws SQLException {
+	public String deletar(int id) throws SQLException {
 		PreparedStatement stmt = minhaConexao.prepareStatement
-				("Delete from T_FIAP_ALUNO where RM = ?");
-			stmt.setInt(1, rm);
+				("Delete from T_CADASTRO_ADMIN where RM = ?");
+			stmt.setInt(1, id);
 			stmt.execute();
 			stmt.close();		
 		return "Deletado com Sucesso!";
-	}*/
+	}
 	// UpDate 
-	/*public String atualizar(Aluno aluno) throws SQLException {
+	public String atualizar(Admin admin) throws SQLException {
 		PreparedStatement stmt = minhaConexao.prepareStatement
-				(" Update T_FIAP_ALUNO set NOME = ?, TURMA = ?, "
-						+ "  NOTA = ? where RM = ?");
-				stmt.setString(1, aluno.getNome());
-				stmt.setString(2, aluno.getTurma());
-				stmt.setDouble(3, aluno.getNota());
-				stmt.setInt(4, aluno.getRm());
+				(" Update T_CADASTRO_ADMIN set NOME_CADASTRO_ADMIN = ?, SENHA_CADASTRO_ADMIN = ?,  where ID = ?");
+				stmt.setString(1, admin.getNome());
+				stmt.setString(2, admin.getSenha());
+				stmt.setInt(3, admin.getId());
 				stmt.executeUpdate();
 				stmt.close();	
 		return "Atualizado com Sucesso!";
-	}*/
+	}
 	// Select 
 	public List<Admin> selecionar() throws SQLException{
 		List<Admin> listaAdmin = new ArrayList<Admin>();

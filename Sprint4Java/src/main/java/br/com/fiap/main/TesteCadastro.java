@@ -4,8 +4,9 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
+import br.com.fiap.beans.Admin;
 import br.com.fiap.beans.Aluno;
-import br.com.fiap.dao.AlunoDAO;
+import br.com.fiap.bo.AdminBO;
 
 public class TesteCadastro {
 	
@@ -25,15 +26,19 @@ public class TesteCadastro {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		// Instanciar objetos
 		Aluno objAluno = new Aluno();
+		Admin objAdmin = new Admin(null);
 		
-		AlunoDAO dao = new AlunoDAO();
+		AdminBO dao = new AdminBO();
 		
-		objAluno.setRm(inteiro("RM"));
-		objAluno.setNome(texto("Nome"));
-		objAluno.setTurma(texto("Turma"));
-		objAluno.setNota(real("Nota"));
+		objAdmin.setId(inteiro("ID"));
+		objAdmin.setNome(texto("Nome"));
+		objAdmin.setDataNasc(texto("Data"));
+		objAdmin.setSexo(texto("Sexo"));
+		objAdmin.setEmail(texto("Email"));
+		objAdmin.setTelefone(texto("Telefone"));
+		objAdmin.setSenha(texto("Senha"));
 		
-		System.out.println(dao.inserir(objAluno));
+		dao.inserirBo(objAdmin);
 
 	}
 

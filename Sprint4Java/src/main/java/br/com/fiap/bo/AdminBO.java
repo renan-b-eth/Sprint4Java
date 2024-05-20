@@ -3,33 +3,33 @@ package br.com.fiap.bo;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import br.com.fiap.beans.Admin;
 import br.com.fiap.beans.Aluno;
-import br.com.fiap.dao.AlunoDAO;
+import br.com.fiap.dao.AdminDAO;
 
 public class AdminBO {
-	
-	AlunoDAO alunoDao;		
+	AdminDAO adminDao;
 	
 	
 	// Selecionar
-	public ArrayList<Aluno> secionarBo() throws SQLException, ClassNotFoundException{
-		alunoDao = new AlunoDAO();
-		return  (ArrayList<Aluno>) alunoDao.selecionar();
+	public ArrayList<Admin> selecionarBo() throws SQLException, ClassNotFoundException{
+		adminDao = new AdminDAO();
+		return  (ArrayList<Admin>) adminDao.selecionar();
 	}
 	
-	public void inserirBo(Aluno aluno) throws ClassNotFoundException, SQLException  {
-		AlunoDAO alunoDAO = new AlunoDAO();
-		alunoDAO.inserir(aluno);
+	public void inserirBo(Admin admin) throws ClassNotFoundException, SQLException  {
+		AdminDAO adminDAO = new AdminDAO();
+		adminDAO.inserir(admin);
 	}
 	
-	public void atualizarBo(Aluno aluno) throws ClassNotFoundException, SQLException  {
-		AlunoDAO alunoDAO = new AlunoDAO();
-		alunoDAO.atualizar(aluno);
+	public void atualizarBo(Admin admin) throws ClassNotFoundException, SQLException  {
+		AdminDAO adminDAO = new AdminDAO();
+		adminDAO.atualizar(admin);
 	}
 	
-	public void deletarBo(int rm) throws ClassNotFoundException, SQLException {
-		AlunoDAO alunoDAO = new AlunoDAO();
-		alunoDAO.deletar(rm);
+	public void deletarBo(int id) throws ClassNotFoundException, SQLException {
+		AdminDAO adminDAO = new AdminDAO();
+		adminDAO.deletar(id);
 	}	
 
 }

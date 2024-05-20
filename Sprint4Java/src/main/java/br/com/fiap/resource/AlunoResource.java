@@ -17,8 +17,9 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 
+import br.com.fiap.beans.Admin;
 import br.com.fiap.beans.Aluno;
-import br.com.fiap.bo.AlunoBO;
+import br.com.fiap.bo.AdminBO;
 
 
 
@@ -27,36 +28,37 @@ public class AlunoResource {
 	
 
 		
-	private AlunoBO alunoBO = new AlunoBO();	
+	//private AlunoBO alunoBO = new AlunoBO();	
+	private AdminBO adminBO = new AdminBO();	
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<Aluno> buscar() throws SQLException, ClassNotFoundException {
-		return (ArrayList<Aluno>) alunoBO.secionarBo();
+	public ArrayList<Admin> buscar() throws SQLException, ClassNotFoundException {
+		return (ArrayList<Admin>) adminBO.selecionarBo();
 	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response cadastroRs (Aluno aluno, @Context UriInfo uriInfo ) throws ClassNotFoundException, SQLException {
-		alunoBO.inserirBo(aluno);
+	public Response cadastroRs (Admin admin, @Context UriInfo uriInfo ) throws ClassNotFoundException, SQLException {
+		adminBO.inserirBo(admin);
 		UriBuilder builder = uriInfo.getAbsolutePathBuilder();
-		builder.path(Integer.toString(aluno.getRm()));
+		builder.path(Integer.toString(admin.getId()));
 		return Response.created(builder.build()).build();		
 	}
 	
 	@PUT
-	@Path("/{rm}")
+	@Path("/{ID_CADASTRO_ADMIN}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response atualizaRs (Aluno aluno, @PathParam("rm") int rm) throws SQLException, ClassNotFoundException {
-		alunoBO.atualizarBo(aluno);
+	public Response atualizaRs (Admin admin, @PathParam("ID_CADASTRO_ADMIN") int id) throws SQLException, ClassNotFoundException {
+		adminBO.atualizarBo(admin);
 		return Response.ok().build();
 	}
 	
 	@DELETE
-	@Path("/{rm}")
+	@Path("/{ID_CADASTRO_ADMIN}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response deleteRs (@PathParam("rm") int rm) throws ClassNotFoundException, SQLException {
-		alunoBO.deletarBo(rm);
+	public Response deleteRs (@PathParam("ID_CADASTRO_ADMIN") int id) throws ClassNotFoundException, SQLException {
+		adminBO.deletarBo(id);
 		return Response.ok().build();
 	}
 }

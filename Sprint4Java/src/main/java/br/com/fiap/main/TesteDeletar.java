@@ -4,8 +4,9 @@ import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
 
+import br.com.fiap.beans.Admin;
 import br.com.fiap.beans.Aluno;
-import br.com.fiap.dao.AlunoDAO;
+import br.com.fiap.dao.AdminDAO;
 
 public class TesteDeletar {
 	
@@ -16,12 +17,13 @@ public class TesteDeletar {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		// Instanciar objetos 
 		Aluno objAluno = new Aluno();
+		Admin objAdmin = new Admin(null);
 		
-		AlunoDAO dao = new AlunoDAO();
+		AdminDAO dao = new AdminDAO();
 		
-		objAluno.setRm(inteiro("Digite o RM do aluno a ser deletado"));
+		objAdmin.setId(inteiro("Digite o ID do aluno a ser deletado"));
 		
-		System.out.println(dao.deletar(objAluno.getRm()));
+		System.out.println(dao.deletar(objAdmin.getId()));
 
 	}
 
